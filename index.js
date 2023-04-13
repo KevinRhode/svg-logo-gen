@@ -6,7 +6,7 @@ const {writeFile} = require('fs/promises');
 const testColor = require('./colorNamesTest.json');
 
 inquirer.registerPrompt('maxlength-input', MaxLengthInputPrompt);
-
+//suger for inquirer prompt, with maxlength added for added Feature
 class Question {
     constructor(name,type,message,choices,maxLength){
         this.name = name;
@@ -16,8 +16,6 @@ class Question {
         this.maxLength = maxLength;
     }
 }
-
-
 const questions = ()=>{
     inquirer
     .prompt(
@@ -55,8 +53,6 @@ const questions = ()=>{
             //tell user info on why
             throw new Error('Your shape color is not valid');
         }
-        
-
         return response;
     })
     .then((response)=>{
@@ -67,10 +63,8 @@ const questions = ()=>{
     .then(()=>console.log('Generated logo.svg'))
     .catch((err)=> console.log(err));
 }
-
 // WHEN I open the `logo.svg` file in a browser
-// THEN I am shown a 300x200 pixel image that matches the criteria I entered  
-
+// THEN I am shown a 300x200 pixel image that matches the criteria I entered 
 //function to return ture if passing name or hex test.
 const colorHelper = (color)=>{
 
@@ -142,9 +136,6 @@ const renderText = function(obj,{text}) {
 const init =()=>{
     questions();
 }
-
 //start the program
 init();
-
-
 module.exports = {Question}
